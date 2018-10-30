@@ -1,0 +1,409 @@
+module tester16 (
+    input clk,
+    input rst,
+    input pause,
+    input restarttest,
+    output out[4][4]
+  ) {
+
+
+
+// instantiate the alu to check its output against test case
+  const CLKSPEED = 26; // speed of update for 26 is approx 1.34s
+  dff counter[CLKSPEED](.clk(clk), .rst(rst)); // create counter as clk
+
+
+  alu alu16; // instantiate alu for checking logic of program against predefined assertions
+  .clk(counter.q[CLKSPEED-1]){ //set fsm speed to counter
+    fsm state(.rst(rst)) = {START, ADD, ADD_OVR, SUB, SUB_OVR, AND, NAND, OR, NOR, XOR, XNOR, A, SHL, SHR, SRA, CMPEQ, CMPLT, CMPLE, MULTIPLY, MOD, END}; // create states for testing each of the fsm.
+  }
+
+
+
+  always {
+
+    // to increment counter
+    counter.d = counter.q + 1;
+    // Test cases
+
+    case(state.q){
+
+      //all test cases output format is 4 numbers to the 7seg, XXYY
+      // XX refers to the test case, 01 for ADD, 02 for SUB and so on ....
+      // YY refers to the results of the test, 11 for pass and 00 for fail
+      // addition test
+
+      
+
+      //AUTO testing case has 3 error case, 7,14,15 are error cases
+      state.START:
+        alu16.alufn=0;
+        out = {4d0,4d0,4d0,4d0};
+        alu16.a =0;
+        alu16.b=0;
+        // at end state use middle button to reset the test from the top
+
+        if (restarttest == 1) 
+          state.d = state.ADD;
+
+      
+
+      //Check add
+
+      state.ADD:
+
+        alu16.alufn = 6b000000; 
+        alu16.a = 16b0111111111111111; // set a value for test, positive +positive£¬ boundary case (maximum plus maximum), overflow,supposed result = 17b01000000000000000
+        alu16.b = 16b0000000000000001; // set b value for test
+        if (alu16.out == 16b1000000000000000){ // assertion set correct value for output of a op b
+          out = {4d0,4d1,4d1,4d1}; //{testdigit1, testdigit2, 1, 1} pass case
+          }
+        else {
+          out = {4d0,4d1,4d0,4d0}; //{testdigit1, testdigit2, 0, 0} fail case
+          }
+        if(pause == 0){
+          state.d = state.ADD_OVR; // move to next test case
+        }
+
+
+
+      state.ADD_OVR:
+        alu16.alufn = 6b000000; 
+        alu16.a = 16b1000000000000000; // set a value for test, negative + negative
+        alu16.b = 16b1100000000000000; // set b value for test
+        if (alu16.out==16b0100000000000000){ // assertion set correct value for output of a op b
+          out = {4d0,4d2,4d1,4d1}; //{testdigit1, testdigit2, 1, 1} pass case
+        }
+        else {
+          out = {4d0,4d2,4d0,4d0}; //{testdigit1, testdigit2, 0, 0} fail case
+        }
+        if(pause == 0){
+          state.d = state.SUB; // move to next test case
+        }
+
+
+
+
+
+      state.SUB:
+        alu16.alufn = 6b000001;  //OPCODE for subtraction
+        alu16.a = 16b1000000000000000;  //3 represented in binary, negative-positive,boundary case , (minimum minus maximum)
+        alu16.b = 16b0111111111111111;  //3 represented in binary
+
+
+        if (alu16.out == 16b0000000000000001){  //subtraction of a and b should give 0
+          out = {4d0,4d3,4d1,4d1};  // true case
+        }
+        else {
+          out = {4d0,4d3,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+          state.d = state.SUB_OVR;  //next state
+        }
+
+
+      state.SUB_OVR:
+        alu16.alufn = 000001;   //OPCODE for subtraction
+        alu16.a = 16b1011111111111111;// negative-positive
+        alu16.b = 16b0100000000000000;
+
+        if (alu16.out == 16b0111111111111111){
+            out = {4d0,4d4,4d1,4d1};  //true case
+        }
+        else {
+
+            out = {4d0,4d4,4d0,4d0};  //false case
+        }
+
+        if(pause == 0){
+
+            state.d = state.AND;  //next state
+
+        }
+
+
+
+      state.AND:
+        alu16.alufn = 6b011000;  //OPCODE for AND
+        alu16.a = 16b1;//positive, positive
+        alu16.b = 16b11;
+        if (alu16.out == 16b1){  //should result in 1 iff ith digit of both a and b are 1
+
+          out = {4d0,4d5,4d1,4d1};  //true case
+        }
+        else {
+          out = {4d0,4d5,4d0,4d0};  //false case
+
+        }
+        if(pause == 0){
+          state.d = state.NAND;  //next state
+
+        }
+
+
+
+      state.NAND:
+        alu16.alufn = 6b010111;  //OPCODE for NAND
+        alu16.a = 16b0011;//positive, positive
+        alu16.b = 16b0101;
+        if (alu16.out == 16b1111111111111110){ //should result in 1 iff ith digit of both a and b are 0
+            out = {4d0,4d6,4d1,4d1};  //true case
+        }
+        else {
+            out = {4d0,4d6,4d0,4d0};  //false case
+
+        }
+        if(pause == 0){
+            state.d = state.OR;  //next state
+
+        }
+
+
+
+      state.OR:
+        alu16.alufn = 6b011110;  //OPCODE for OR
+        alu16.a = 16b1010;//positive,positive
+        alu16.b = 16b1111;
+        if (alu16.out == 16b1110){  //should result in 0 iff ith digit of either a and b are 0, else 1,error case,supposed output = 16b1111
+          out = {4d0,4d7,4d1,4d1};  //true case
+        }
+        else {
+          out = {4d0,4d7,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+          state.d = state.NOR;  //next state
+
+        }
+
+
+
+      state.NOR:
+        alu16.alufn = 6b010001;  //OPCODE for NOR
+        alu16.a = 16b0011;//positive,positive
+        alu16.b = 16b0101;
+        if (alu16.out == 16b1111111111111000){  //should result in 1 iff ith digit of either a and b are 0, else 0
+            out = {4d0,4d8,4d1,4d1};  //true case
+
+        }
+
+        else {
+            out = {4d0,4d8,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+            state.d = state.XOR;
+        }
+
+
+
+      state.XOR:
+        alu16.alufn = 6b010110;  //OPCODE for XOR
+        alu16.a = 16b1010;//positive,positive
+        alu16.b = 16b1100;
+        if (alu16.out == 16b0110){  //should result in 1 iff ith digit of a and b are complements
+          out = {4d0,4d9,4d1,4d1};  //true case
+        }
+        else {
+          out = {4d0,4d9,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+          state.d = state.XNOR;  //next state
+        }
+
+
+
+      state.XNOR:
+        alu16.alufn = 6b011001;  //OPCODE for XNOR
+        alu16.a = 16b1010;//positive,positive
+        alu16.b = 16b1100;
+        if (alu16.out == 16b1111111111111001){  //should result in 0 iff ith digit of a and b are complements
+            out = {4d1,4d0,4d1,4d1};  // true case
+
+        }
+        else {
+            out = {4d1,4d0,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+            state.d = state.A;  //next state
+        }
+
+
+
+      state.A:
+        alu16.alufn = 6b011010;  //OPCODE for LDR
+        alu16.a = 16b1010;//positive,positive
+        alu16.b = 16b1100;
+        if (alu16.out == 16b1010){
+          out = {4d1,4d1,4d1,4d1};  //true case
+        }
+        else {
+          out = {4d1,4d1,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+          state.d = state.CMPEQ;  //next state
+
+        }
+
+
+
+      state.CMPEQ:
+        alu16.alufn = 6b110011;  //OPCODE for CMPEQ
+        alu16.a = 16b1010000000000011;//negative,negative
+        alu16.b = 16b1010000000000000;
+        if (alu16.out == 0){  //if a and b are equal
+          out = {4d1,4d2,4d1,4d1};  //true case
+
+        }
+        else {
+          out = {4d1,4d2,4d0,4d0};  //false case
+
+        }
+        if(pause == 0){
+          state.d = state.CMPLT;  //next state
+
+        }
+
+
+
+      state.CMPLT:
+        alu16.alufn = 6b110101;  //OPCODE for CMPLT
+        alu16.a = 16b1010;//positive,positive
+        alu16.b = 16b1010;
+        if (alu16.out == 0){
+          out = {4d1,4d3,4d1,4d1}; //true case
+        }
+        else {
+          out = {4d1,4d3,4d0,4d0};  //false case
+
+        }
+        if(pause == 0){
+          state.d = state.CMPLE;  //next state
+        }
+
+
+
+      state.CMPLE:
+        alu16.alufn = 6b110111;  //OPCODE for CMPLE
+        alu16.a = 16b0100000000000001;//positive,positive, error case,supposed output = 0000000000000000
+        alu16.b = 16b0010000000111000;
+        if (alu16.out == 1){
+          out = {4d1,4d4,4d1,4d1};  //true case
+
+        }
+        else {
+          out = {4d1,4d4,4d0,4d0};  //false case
+        }
+
+        if(pause == 0){
+          state.d = state.SHL;  //next state
+
+        }
+
+
+
+      state.SHL:
+        alu16.alufn = 6b100000;  //OPCODE of SHL
+        alu16.a = 16b0010000000000000;//positive,positive, error case, supposed output = 16b0100000000000000
+        alu16.b = 16b0000000000000001; // 3 in decimal
+        if (alu16.out == 16b0100000000000001){
+          out = {4d1,4d5,4d1,4d1};  ///true case
+        }
+        else {
+          out = {4d1,4d5,4d0,4d0};  //false case
+
+        }
+        if(pause == 0){
+          state.d = state.SHR;  //next state
+
+        }
+
+
+
+      state.SHR:
+        alu16.alufn = 6b100001;  //OPCODE for SHR
+        alu16.a = 16b1010000;//positive,positive
+        alu16.b = 16b11; // 3 in decimal
+        if (alu16.out == 16b1010){  //result we get when we shift a to the right by b
+          out = {4d1,4d6,4d1,4d1};  //true case
+        }
+
+        else {
+          out = {4d1,4d6,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+          state.d = state.SRA;  //next state
+        }
+
+
+
+      state.SRA:
+        alu16.alufn = 6b100011;  //OPCODE for SRA
+        alu16.a = 16b1000000000001000;//negative,positive
+        alu16.b = 16b0000000000000011; // 3 in decimal
+        if (alu16.out == 16b1111000000000001){  //result of arithmetic shifting
+          out = {4d1,4d7,4d1,4d1};  //true case
+        }
+        else {
+          out = {4d1,4d7,4d0,4d0};  //false case
+        }
+        if(pause == 0){
+          state.d = state.MULTIPLY;  //next state
+        }
+
+
+
+      state.MULTIPLY:
+        alu16.alufn = 6b000010;  //OPCODE for multiplication
+        alu16.a = 16b0000000000000010; // positive,positive
+        alu16.b = 16b0000000000000010;  // 2 in decimal
+        if (alu16.out == 16b0000000000000100){  //2*2 = 4 and 4 in binary is 0000000000000100
+            out = {4d1,4d8,4d1,4d1};   //if true
+        }
+        else {
+            out = {4d1,4d8,4d0,4d0};   //if false
+        }
+        if(pause == 0){
+            state.d = state.MOD;
+        }
+      state.MOD:
+        alu16.alufn = 6b000111;  //OPCODE for MOD
+        alu16.a = 16b0000000000000100; // positive,positive
+        alu16.b = 16b0000000000000010;  // 4 in decimal
+        if (alu16.out == 16b0000000000000000){  //2%4 = 2 and 2 in binary is 0000000000000010
+            out = {4d1,4d9,4d1,4d1};   //if true
+        }
+
+        else {
+            out = {4d1,4d9,4d0,4d0};   //if false
+        }
+
+        if(pause == 0){
+            state.d = state.END;
+
+        }
+        
+
+
+     
+      state.END:
+        out = {4d9,4d9,4d9,4d9};
+        alu16.a =0;
+        alu16.b=0;
+        alu16.alufn=0;
+        // at end state use middle button to reset the test from the top
+        if (restarttest == 1) 
+          state.d = state.ADD;
+
+      default:
+
+        state.d = state.START;
+
+        out = {4d0,4d0,4d0,4d0};
+        alu16.a =0;
+        alu16.b=0;
+        alu16.alufn=0;
+
+    }
+
+  }
+
+}

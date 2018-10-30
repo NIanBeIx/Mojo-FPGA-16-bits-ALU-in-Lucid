@@ -1,0 +1,276 @@
+
+module mojo_top (
+    input clk,              // 50MHz clock
+    input rst_n,            // reset button (active low)
+    output led [8],         // 8 user controllable LEDs
+    //input cclk,             // configuration clock, AVR ready when high
+    //output spi_miso,        // AVR SPI MISO
+    //input spi_ss,           // AVR SPI Slave Select
+    //input spi_mosi,         // AVR SPI MOSI
+    //input spi_sck,          // AVR SPI Clock
+    //output spi_channel [4], // AVR general purpose pins (used by default to select ADC channel)
+    //input avr_tx,           // AVR TX (FPGA RX)
+    //output avr_rx,          // AVR RX (FPGA TX)
+    //input avr_rx_busy,      // AVR RX buffer full
+    output io_led [3][8],   // LEDs on IO Shield
+    output io_seg [8],      // 7-segment LEDs on IO Shield
+    output io_sel [4],      // Digit select on IO Shield
+    input io_button [5],    // 5 buttons on IO Shield
+    input io_dip [3][8]     // DIP switches on IO Shield
+    //input io_button[5]
+  ) {
+  
+  sig rst;                  // reset signal
+  
+  .clk(clk) {
+    // The reset conditioner is used to synchronize the reset signal to the FPGA
+    // clock. This ensures the entire FPGA comes out of reset at the same time.
+    reset_conditioner reset_cond;
+    
+    .rst(rst){
+      // the avr_interface module is used to talk to the AVR for access to the USB port and analog pins
+      display seg;
+      dff leds [16];//record input a
+      dff leds2[16];// record input b
+      dff function[6];//to record operation codes
+      fsm testingmode(#INIT(MANUAL))={MANUAL,AUTO};//manual or automatically testing
+      fsm nextnumber(#INIT(NUM1))={NUM1,NUM2,F,COMPUTE};//state machine to switch state and take in inputs from users, in manual mode
+    }
+  }
+
+  
+  sig aluselect[6];//record operation code
+  
+  alu f;//inport ALU function
+  adder add;//import ADD function to determine overflow
+  tester16 autotest(.clk(clk), .rst(rst), .pause(io_dip[2][6]), .restarttest(io_button[4]));//import automatically testing function
+  
+  always {
+    seg.values = {4d0,4d0,4d0,4d0};
+    io_seg = ~seg.seg; // connect segments to the driver
+    io_sel = ~seg.sel; // connect digit select to the driver
+    reset_cond.in = ~rst_n; // input raw inverted reset signal
+    rst = reset_cond.out;   // conditioned reset
+    io_led=3x{{8h00}};
+    led=8h00;
+    f.a=leds.q;
+    f.b=leds2.q;
+    f.alufn=function.q;
+    add.a=leds.q;
+    add.b=leds2.q;
+    add.alufn20=function.q[0];
+    led[7]=add.v;//indicate overflow
+    
+    
+    case(testingmode.q){
+      testingmode.MANUAL:
+        seg.values = {4d0,4d0,4d0,4d0};
+        led[5]=1;
+        
+        if(io_dip[2][7]==1){
+          testingmode.d=testingmode.AUTO;//switch to aotomatically check
+          }
+        case(nextnumber.q){
+          nextnumber.NUM1://state of taking in input a
+      
+          led[7:1]=7h0;
+          led[0]=1;
+          io_led[2][7]=0;
+          io_led[2][6]=0;
+          io_led[2][5]=0;
+          io_led[2][4]=0;
+          io_led[2][3]=0;
+          io_led[2][2]=0;
+          io_led[2][1]=0;
+          io_led[2][0]=0;
+          leds.d[15]=io_dip[1][7];
+          leds.d[14]=io_dip[1][6];
+          leds.d[13]=io_dip[1][5];
+          leds.d[12]=io_dip[1][4];
+          leds.d[11]=io_dip[1][3];
+          leds.d[10]=io_dip[1][2];
+          leds.d[9]=io_dip[1][1];
+          leds.d[8]=io_dip[1][0];
+          leds.d[7]=io_dip[0][7];
+          leds.d[6]=io_dip[0][6];
+          leds.d[5]=io_dip[0][5];
+          leds.d[4]=io_dip[0][4];
+          leds.d[3]=io_dip[0][3];
+          leds.d[2]=io_dip[0][2];
+          leds.d[1]=io_dip[0][1];
+          leds.d[0]=io_dip[0][0];
+    
+    
+          io_led[1][7] = leds.q[15];                         // connect the dff output
+          io_led[1][6]=leds.q[14];
+          io_led[1][5]=leds.q[13];
+          io_led[1][4]=leds.q[12];
+          io_led[1][3]=leds.q[11];
+          io_led[1][2]=leds.q[10];
+          io_led[1][1]=leds.q[9];
+          io_led[1][0]=leds.q[8];
+          io_led[0][7]=leds.q[7];
+          io_led[0][6]=leds.q[6];
+          io_led[0][5]=leds.q[5];
+          io_led[0][4]=leds.q[4];
+          io_led[0][3]=leds.q[3];
+          io_led[0][2]=leds.q[2];
+          io_led[0][1]=leds.q[1];
+          io_led[0][0]=leds.q[0];
+    
+        
+        
+          if(io_button[0]){
+            nextnumber.d=nextnumber.NUM2;
+         
+          }
+    
+        nextnumber.NUM2://state of taking in input b
+          led[7:2]=6h0;
+          led[1]=1;
+          led[0]=0;
+          io_led[2][7]=0;
+          io_led[2][6]=0;
+          io_led[2][5]=0;
+          io_led[2][4]=0;
+          io_led[2][3]=0;
+          io_led[2][2]=0;
+          io_led[2][1]=0;
+          io_led[2][0]=0;
+        
+          leds2.d[15]=io_dip[1][7];
+          leds2.d[14]=io_dip[1][6];
+          leds2.d[13]=io_dip[1][5];
+          leds2.d[12]=io_dip[1][4];
+          leds2.d[11]=io_dip[1][3];
+          leds2.d[10]=io_dip[1][2];
+          leds2.d[9]=io_dip[1][1];
+          leds2.d[8]=io_dip[1][0];
+          leds2.d[7]=io_dip[0][7];
+          leds2.d[6]=io_dip[0][6];
+          leds2.d[5]=io_dip[0][5];
+          leds2.d[4]=io_dip[0][4];
+          leds2.d[3]=io_dip[0][3];
+          leds2.d[2]=io_dip[0][2];
+          leds2.d[1]=io_dip[0][1];
+          leds2.d[0]=io_dip[0][0];
+    
+    
+          io_led[1][7] = leds2.q[15];                         // connect the dff output
+          io_led[1][6]=leds2.q[14];
+          io_led[1][5]=leds2.q[13];
+          io_led[1][4]=leds2.q[12];
+          io_led[1][3]=leds2.q[11];
+          io_led[1][2]=leds2.q[10];
+          io_led[1][1]=leds2.q[9];
+          io_led[1][0]=leds2.q[8];
+          io_led[0][7]=leds2.q[7];
+          io_led[0][6]=leds2.q[6];
+          io_led[0][5]=leds2.q[5];
+          io_led[0][4]=leds2.q[4];
+          io_led[0][3]=leds2.q[3];
+          io_led[0][2]=leds2.q[2];
+          io_led[0][1]=leds2.q[1];
+          io_led[0][0]=leds2.q[0];
+        
+          if(io_button[1]){
+            nextnumber.d=nextnumber.F;
+          
+          }
+        nextnumber.F://state to take in the operation user want to execute
+      
+          aluselect=io_dip[2][5:0];
+          function.d=io_dip[2][5:0];
+          io_led[2][5:0]=io_dip[2][5:0];
+          led[7:3]=5h0;
+          led[2]=1;
+          led[1:0]=2h0;
+          io_led[2][7:6]=0;
+          io_led[0][0]=0;
+          io_led[0][1]=0;
+          io_led[0][2]=0;
+          io_led[0][3]=0;
+          io_led[0][4]=0;
+          io_led[0][5]=0;
+          io_led[0][6]=0;
+          io_led[0][7]=0;
+          io_led[1][0]=0;
+          io_led[1][1]=0;
+          io_led[1][2]=0;
+          io_led[1][3]=0;
+          io_led[1][4]=0;
+          io_led[1][5]=0;
+          io_led[1][6]=0;
+          io_led[1][7]=0;
+          io_led[2][7]=0;
+          io_led[2][5]=0;
+      
+       
+      
+          if(io_button[2]){
+            nextnumber.d=nextnumber.COMPUTE;
+          
+          }
+        
+        nextnumber.COMPUTE://display the computed values on IO shield
+        
+          led[7:4]=4h0;
+          led[3]=1;
+          led[2:0]=3h0;
+        
+          io_led[2]=8h00;
+        
+          io_led[0][0]=f.out[0];
+          io_led[0][1]=f.out[1];
+          io_led[0][2]=f.out[2];
+          io_led[0][3]=f.out[3];
+          io_led[0][4]=f.out[4];
+          io_led[0][5]=f.out[5];
+          io_led[0][6]=f.out[6];
+          io_led[0][7]=f.out[7];
+          io_led[1][0]=f.out[8];
+          io_led[1][1]=f.out[9];
+          io_led[1][2]=f.out[10];
+          io_led[1][3]=f.out[11];
+          io_led[1][4]=f.out[12];
+          io_led[1][5]=f.out[13];
+          io_led[1][6]=f.out[14];
+          io_led[1][7]=f.out[15];
+            
+          if(f.overflow>0){
+            led[7]=1;
+              }
+        
+
+          if(io_button[3]){
+            nextnumber.d=nextnumber.NUM1;
+            io_led=3x{{8h00}};
+            led=8h00;
+            f.a=leds.q;
+            f.b=leds2.q;
+            f.alufn=function.q;
+          
+            }
+          
+            
+          
+      }//end of manual testing mode
+        
+      testingmode.AUTO://autotesting mode
+        led[6]=1;
+        seg.values=autotest.out;
+        if(io_dip[2][7]==0){//switch back to manual mode
+          testingmode.d=testingmode.MANUAL;
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+
+    
+  }
+}

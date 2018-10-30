@@ -1,0 +1,1327 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -o
+mojo_top_0.twr -v 30 -l 30 mojo_top_0_routed.ncd mojo_top_0.pcf
+
+Design file:              mojo_top_0_routed.ncd
+Physical constraint file: mojo_top_0.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 917 paths analyzed, 304 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  13.330ns.
+--------------------------------------------------------------------------------
+Slack:                  6.670ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_function_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      13.204ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.091ns (0.799 - 0.890)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_function_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.B3      net (fanout=49)       5.210   M_testingmode_q
+    SLICE_X10Y61.B       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       led<2>1
+    ILOGIC_X12Y4.CE0     net (fanout=7)        5.199   led_2_OBUF
+    ILOGIC_X12Y4.CLK0    Tice0ck               0.782   io_dip_19_IBUF
+                                                       M_function_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                     13.204ns (2.795ns logic, 10.409ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  6.670ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_function_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      13.204ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.091ns (0.799 - 0.890)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_function_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.B3      net (fanout=49)       5.210   M_testingmode_q
+    SLICE_X10Y61.B       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       led<2>1
+    ILOGIC_X12Y5.CE0     net (fanout=7)        5.199   led_2_OBUF
+    ILOGIC_X12Y5.CLK0    Tice0ck               0.782   io_dip_18_IBUF
+                                                       M_function_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                     13.204ns (2.795ns logic, 10.409ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  6.692ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_function_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      13.183ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.090ns (0.800 - 0.890)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_function_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.B3      net (fanout=49)       5.210   M_testingmode_q
+    SLICE_X10Y61.B       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       led<2>1
+    ILOGIC_X11Y3.CE0     net (fanout=7)        5.178   led_2_OBUF
+    ILOGIC_X11Y3.CLK0    Tice0ck               0.782   io_dip_20_IBUF
+                                                       M_function_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                     13.183ns (2.795ns logic, 10.388ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  6.692ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_function_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      13.183ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.090ns (0.800 - 0.890)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_function_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.B3      net (fanout=49)       5.210   M_testingmode_q
+    SLICE_X10Y61.B       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       led<2>1
+    ILOGIC_X11Y2.CE0     net (fanout=7)        5.178   led_2_OBUF
+    ILOGIC_X11Y2.CLK0    Tice0ck               0.782   M_function_q[5]
+                                                       M_function_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                     13.183ns (2.795ns logic, 10.388ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  7.756ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_function_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      12.045ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.164ns (1.099 - 1.263)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_function_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.B3      net (fanout=49)       5.210   M_testingmode_q
+    SLICE_X10Y61.B       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       led<2>1
+    ILOGIC_X12Y21.CE0    net (fanout=7)        4.040   led_2_OBUF
+    ILOGIC_X12Y21.CLK0   Tice0ck               0.782   io_dip_16_IBUF
+                                                       M_function_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                     12.045ns (2.795ns logic, 9.250ns route)
+                                                       (23.2% logic, 76.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  7.756ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_function_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      12.045ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.164ns (1.099 - 1.263)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_function_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.B3      net (fanout=49)       5.210   M_testingmode_q
+    SLICE_X10Y61.B       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       led<2>1
+    ILOGIC_X12Y20.CE0    net (fanout=7)        4.040   led_2_OBUF
+    ILOGIC_X12Y20.CLK0   Tice0ck               0.782   io_dip_17_IBUF
+                                                       M_function_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                     12.045ns (2.795ns logic, 9.250ns route)
+                                                       (23.2% logic, 76.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.533ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_14 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.752ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.680ns (0.676 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X17Y39.D4      net (fanout=16)       1.695   led<0>1_rstpot
+    SLICE_X17Y39.CLK     Tas                   0.264   Sh111
+                                                       M_leds_q_14_dpot
+                                                       M_leds_q_14
+    -------------------------------------------------  ---------------------------
+    Total                                      8.752ns (2.379ns logic, 6.373ns route)
+                                                       (27.2% logic, 72.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.878ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.414ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.673ns (0.683 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X17Y43.C5      net (fanout=16)       1.357   led<0>1_rstpot
+    SLICE_X17Y43.CLK     Tas                   0.264   Sh110
+                                                       M_leds_q_2_dpot
+                                                       M_leds_q_2
+    -------------------------------------------------  ---------------------------
+    Total                                      8.414ns (2.379ns logic, 6.035ns route)
+                                                       (28.3% logic, 71.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  10.978ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.382ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X21Y52.D3      net (fanout=16)       1.216   led<0>1_rstpot
+    SLICE_X21Y52.CLK     Tas                   0.373   M_leds_q[8]
+                                                       M_leds_q_8_dpot
+                                                       M_leds_q_8
+    -------------------------------------------------  ---------------------------
+    Total                                      8.382ns (2.488ns logic, 5.894ns route)
+                                                       (29.7% logic, 70.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.008ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          f/add/Mmult_n0029 (DSP)
+  Requirement:          20.000ns
+  Data Path Delay:      8.385ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.572ns (0.784 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to f/add/Mmult_n0029
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.D2      net (fanout=49)       4.886   M_testingmode_q
+    SLICE_X15Y55.DMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1
+    DSP48_X0Y12.CEB      net (fanout=3)        1.354   led_0_OBUF
+    DSP48_X0Y12.CLK      Tdspdck_CEB_B0REG     0.030   f/add/Mmult_n0029
+                                                       f/add/Mmult_n0029
+    -------------------------------------------------  ---------------------------
+    Total                                      8.385ns (2.145ns logic, 6.240ns route)
+                                                       (25.6% logic, 74.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.011ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.349ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X21Y52.C3      net (fanout=16)       1.183   led<0>1_rstpot
+    SLICE_X21Y52.CLK     Tas                   0.373   M_leds_q[8]
+                                                       M_leds_q_7_dpot
+                                                       M_leds_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      8.349ns (2.488ns logic, 5.861ns route)
+                                                       (29.8% logic, 70.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.189ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          f/add/Maddsub_n0031 (DSP)
+  Requirement:          20.000ns
+  Data Path Delay:      8.196ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.580ns (0.776 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to f/add/Maddsub_n0031
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.D2      net (fanout=49)       4.886   M_testingmode_q
+    SLICE_X15Y55.DMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1
+    DSP48_X0Y13.CEC      net (fanout=3)        1.165   led_0_OBUF
+    DSP48_X0Y13.CLK      Tdspdck_CEC_CREG      0.030   f/add/Maddsub_n0031
+                                                       f/add/Maddsub_n0031
+    -------------------------------------------------  ---------------------------
+    Total                                      8.196ns (2.145ns logic, 6.051ns route)
+                                                       (26.2% logic, 73.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.226ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.134ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X21Y52.A6      net (fanout=16)       0.968   led<0>1_rstpot
+    SLICE_X21Y52.CLK     Tas                   0.373   M_leds_q[8]
+                                                       M_leds_q_5_dpot
+                                                       M_leds_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                      8.134ns (2.488ns logic, 5.646ns route)
+                                                       (30.6% logic, 69.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.226ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.134ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X21Y52.B6      net (fanout=16)       0.968   led<0>1_rstpot
+    SLICE_X21Y52.CLK     Tas                   0.373   M_leds_q[8]
+                                                       M_leds_q_6_dpot
+                                                       M_leds_q_6
+    -------------------------------------------------  ---------------------------
+    Total                                      8.134ns (2.488ns logic, 5.646ns route)
+                                                       (30.6% logic, 69.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.229ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_15 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.132ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.604ns (0.752 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X14Y48.B4      net (fanout=16)       0.990   led<0>1_rstpot
+    SLICE_X14Y48.CLK     Tas                   0.349   M_leds_q[15]
+                                                       M_leds_q_15_dpot
+                                                       M_leds_q_15
+    -------------------------------------------------  ---------------------------
+    Total                                      8.132ns (2.464ns logic, 5.668ns route)
+                                                       (30.3% logic, 69.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.333ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_11 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.027ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_11
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X14Y49.C3      net (fanout=16)       0.885   led<0>1_rstpot
+    SLICE_X14Y49.CLK     Tas                   0.349   M_leds_q[12]
+                                                       M_leds_q_11_dpot
+                                                       M_leds_q_11
+    -------------------------------------------------  ---------------------------
+    Total                                      8.027ns (2.464ns logic, 5.563ns route)
+                                                       (30.7% logic, 69.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.336ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_13 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.025ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.604ns (0.752 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X14Y48.A5      net (fanout=16)       0.883   led<0>1_rstpot
+    SLICE_X14Y48.CLK     Tas                   0.349   M_leds_q[15]
+                                                       M_leds_q_13_dpot
+                                                       M_leds_q_13
+    -------------------------------------------------  ---------------------------
+    Total                                      8.025ns (2.464ns logic, 5.561ns route)
+                                                       (30.7% logic, 69.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.439ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_12 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.921ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X14Y49.D4      net (fanout=16)       0.779   led<0>1_rstpot
+    SLICE_X14Y49.CLK     Tas                   0.349   M_leds_q[12]
+                                                       M_leds_q_12_dpot
+                                                       M_leds_q_12
+    -------------------------------------------------  ---------------------------
+    Total                                      7.921ns (2.464ns logic, 5.457ns route)
+                                                       (31.1% logic, 68.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.450ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_0 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.905ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.610ns (0.746 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X15Y52.A4      net (fanout=16)       0.739   led<0>1_rstpot
+    SLICE_X15Y52.CLK     Tas                   0.373   M_leds_q[4]
+                                                       M_leds_q_0_dpot
+                                                       M_leds_q_0
+    -------------------------------------------------  ---------------------------
+    Total                                      7.905ns (2.488ns logic, 5.417ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.458ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.897ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.610ns (0.746 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X15Y52.D4      net (fanout=16)       0.731   led<0>1_rstpot
+    SLICE_X15Y52.CLK     Tas                   0.373   M_leds_q[4]
+                                                       M_leds_q_4_dpot
+                                                       M_leds_q_4
+    -------------------------------------------------  ---------------------------
+    Total                                      7.897ns (2.488ns logic, 5.409ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.482ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_nextnumber_q_FSM_FFd2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.904ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.579ns (0.777 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_nextnumber_q_FSM_FFd2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.C2      net (fanout=49)       5.304   M_testingmode_q
+    SLICE_X10Y61.C       Tilo                  0.235   M_nextnumber_q_FSM_FFd2_1
+                                                       M_nextnumber_q_FSM_FFd2-In1
+    SLICE_X10Y61.BX      net (fanout=1)        0.473   M_nextnumber_q_FSM_FFd2-In
+    SLICE_X10Y61.CLK     Tdick                 0.114   M_nextnumber_q_FSM_FFd2_1
+                                                       M_nextnumber_q_FSM_FFd2
+    -------------------------------------------------  ---------------------------
+    Total                                      7.904ns (2.127ns logic, 5.777ns route)
+                                                       (26.9% logic, 73.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.513ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.842ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.610ns (0.746 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X15Y52.B5      net (fanout=16)       0.676   led<0>1_rstpot
+    SLICE_X15Y52.CLK     Tas                   0.373   M_leds_q[4]
+                                                       M_leds_q_1_dpot
+                                                       M_leds_q_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.842ns (2.488ns logic, 5.354ns route)
+                                                       (31.7% logic, 68.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.534ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          f/add/Mmult_n0029 (DSP)
+  Requirement:          20.000ns
+  Data Path Delay:      7.859ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.572ns (0.784 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to f/add/Mmult_n0029
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y53.D2      net (fanout=49)       4.875   M_testingmode_q
+    SLICE_X10Y53.DMUX    Tilo                  0.298   Mmux_io_led21
+                                                       led<1>1
+    DSP48_X0Y12.CEA      net (fanout=3)        0.878   led_1_OBUF
+    DSP48_X0Y12.CLK      Tdspdck_CEA_A1REG     0.030   f/add/Mmult_n0029
+                                                       f/add/Mmult_n0029
+    -------------------------------------------------  ---------------------------
+    Total                                      7.859ns (2.106ns logic, 5.753ns route)
+                                                       (26.8% logic, 73.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.547ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.808ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.610ns (0.746 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X15Y52.C5      net (fanout=16)       0.642   led<0>1_rstpot
+    SLICE_X15Y52.CLK     Tas                   0.373   M_leds_q[4]
+                                                       M_leds_q_3_dpot
+                                                       M_leds_q_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.808ns (2.488ns logic, 5.320ns route)
+                                                       (31.9% logic, 68.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.578ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.782ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X14Y49.A6      net (fanout=16)       0.640   led<0>1_rstpot
+    SLICE_X14Y49.CLK     Tas                   0.349   M_leds_q[12]
+                                                       M_leds_q_9_dpot
+                                                       M_leds_q_9
+    -------------------------------------------------  ---------------------------
+    Total                                      7.782ns (2.464ns logic, 5.318ns route)
+                                                       (31.7% logic, 68.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.578ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds_q_10 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.782ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.605ns (0.751 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds_q_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X15Y55.C4      net (fanout=49)       4.678   M_testingmode_q
+    SLICE_X15Y55.CMUX    Tilo                  0.337   M_leds2_q[15]
+                                                       led<0>1_rstpot
+    SLICE_X14Y49.B6      net (fanout=16)       0.640   led<0>1_rstpot
+    SLICE_X14Y49.CLK     Tas                   0.349   M_leds_q[12]
+                                                       M_leds_q_10_dpot
+                                                       M_leds_q_10
+    -------------------------------------------------  ---------------------------
+    Total                                      7.782ns (2.464ns logic, 5.318ns route)
+                                                       (31.7% logic, 68.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.656ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds2_q_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.699ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.610ns (0.746 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds2_q_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X22Y54.D2      net (fanout=49)       5.572   M_testingmode_q
+    SLICE_X22Y54.CLK     Tas                   0.349   M_leds2_q[7]
+                                                       M_leds2_q_7_dpot
+                                                       M_leds2_q_7
+    -------------------------------------------------  ---------------------------
+    Total                                      7.699ns (2.127ns logic, 5.572ns route)
+                                                       (27.6% logic, 72.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.716ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          f/add/Maddsub_n0031 (DSP)
+  Requirement:          20.000ns
+  Data Path Delay:      7.669ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.580ns (0.776 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to f/add/Maddsub_n0031
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y53.D2      net (fanout=49)       4.875   M_testingmode_q
+    SLICE_X10Y53.DMUX    Tilo                  0.298   Mmux_io_led21
+                                                       led<1>1
+    DSP48_X0Y13.CEA      net (fanout=3)        0.688   led_1_OBUF
+    DSP48_X0Y13.CLK      Tdspdck_CEA_A1REG     0.030   f/add/Maddsub_n0031
+                                                       f/add/Maddsub_n0031
+    -------------------------------------------------  ---------------------------
+    Total                                      7.669ns (2.106ns logic, 5.563ns route)
+                                                       (27.5% logic, 72.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  11.955ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_nextnumber_q_FSM_FFd2_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.431ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.579ns (0.777 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_nextnumber_q_FSM_FFd2_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X10Y61.C2      net (fanout=49)       5.304   M_testingmode_q
+    SLICE_X10Y61.CLK     Tas                   0.349   M_nextnumber_q_FSM_FFd2_1
+                                                       M_nextnumber_q_FSM_FFd2-In1
+                                                       M_nextnumber_q_FSM_FFd2_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.431ns (2.127ns logic, 5.304ns route)
+                                                       (28.6% logic, 71.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  12.006ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               M_testingmode_q (FF)
+  Destination:          M_leds2_q_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.349ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.610ns (0.746 - 1.356)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: M_testingmode_q to M_leds2_q_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    ILOGIC_X9Y2.Q4       Tickq                 1.778   M_testingmode_q
+                                                       M_testingmode_q
+    SLICE_X22Y54.B3      net (fanout=49)       5.222   M_testingmode_q
+    SLICE_X22Y54.CLK     Tas                   0.349   M_leds2_q[7]
+                                                       M_leds2_q_5_dpot
+                                                       M_leds2_q_5
+    -------------------------------------------------  ---------------------------
+    Total                                      7.349ns (2.127ns logic, 5.222ns route)
+                                                       (28.9% logic, 71.1% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.334ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clk_BUFGP/BUFG/I0
+  Logical resource: clk_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y11.I0
+  Clock network: clk_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_20_IBUF/CLK0
+  Logical resource: M_function_q_4/CLK0
+  Location pin: ILOGIC_X11Y3.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_20_IBUF/SR
+  Logical resource: M_function_q_4/SR
+  Location pin: ILOGIC_X11Y3.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: M_function_q[5]/CLK0
+  Logical resource: M_function_q_5/CLK0
+  Location pin: ILOGIC_X11Y2.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: M_function_q[5]/SR
+  Logical resource: M_function_q_5/SR
+  Location pin: ILOGIC_X11Y2.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: M_testingmode_q/CLK0
+  Logical resource: M_testingmode_q/CLK0
+  Location pin: ILOGIC_X9Y2.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: M_testingmode_q/SR
+  Logical resource: M_testingmode_q/SR
+  Location pin: ILOGIC_X9Y2.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_16_IBUF/CLK0
+  Logical resource: M_function_q_0/CLK0
+  Location pin: ILOGIC_X12Y21.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_16_IBUF/SR
+  Logical resource: M_function_q_0/SR
+  Location pin: ILOGIC_X12Y21.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_17_IBUF/CLK0
+  Logical resource: M_function_q_1/CLK0
+  Location pin: ILOGIC_X12Y20.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_17_IBUF/SR
+  Logical resource: M_function_q_1/SR
+  Location pin: ILOGIC_X12Y20.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_18_IBUF/CLK0
+  Logical resource: M_function_q_2/CLK0
+  Location pin: ILOGIC_X12Y5.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_18_IBUF/SR
+  Logical resource: M_function_q_2/SR
+  Location pin: ILOGIC_X12Y5.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 1.866ns (535.906MHz) (Tickper)
+  Physical resource: io_dip_19_IBUF/CLK0
+  Logical resource: M_function_q_3/CLK0
+  Location pin: ILOGIC_X12Y4.CLK0
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 18.134ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 0.933ns (Tispwh)
+  Physical resource: io_dip_19_IBUF/SR
+  Logical resource: M_function_q_3/SR
+  Location pin: ILOGIC_X12Y4.SR
+  Clock network: M_reset_cond_out
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[19]/CLK
+  Logical resource: autotest/M_counter_q_18/CK
+  Location pin: SLICE_X16Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[19]/CLK
+  Logical resource: autotest/M_counter_q_19/CK
+  Location pin: SLICE_X16Y19.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[23]/CLK
+  Logical resource: autotest/M_counter_q_20/CK
+  Location pin: SLICE_X16Y20.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[23]/CLK
+  Logical resource: autotest/M_counter_q_21/CK
+  Location pin: SLICE_X16Y20.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[23]/CLK
+  Logical resource: autotest/M_counter_q_22/CK
+  Location pin: SLICE_X16Y20.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[23]/CLK
+  Logical resource: autotest/M_counter_q_23/CK
+  Location pin: SLICE_X16Y20.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[25]/CLK
+  Logical resource: autotest/M_counter_q_24/CK
+  Location pin: SLICE_X16Y21.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: autotest/M_counter_q[25]/CLK
+  Logical resource: autotest/M_counter_q_25/CK
+  Location pin: SLICE_X16Y21.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: reset_cond/M_stage_q[2]/CLK
+  Logical resource: reset_cond/M_stage_q_0/CK
+  Location pin: SLICE_X8Y21.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: reset_cond/M_stage_q[2]/CLK
+  Logical resource: reset_cond/M_stage_q_1/CK
+  Location pin: SLICE_X8Y21.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.520ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: reset_cond/M_stage_q[2]/CLK
+  Logical resource: reset_cond/M_stage_q_2/CK
+  Location pin: SLICE_X8Y21.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.525ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.475ns (2105.263MHz) (Tcp)
+  Physical resource: M_nextnumber_q_FSM_FFd2_1/CLK
+  Logical resource: M_nextnumber_q_FSM_FFd1/CK
+  Location pin: SLICE_X10Y61.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.525ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.475ns (2105.263MHz) (Tcp)
+  Physical resource: M_nextnumber_q_FSM_FFd2_1/CLK
+  Logical resource: M_nextnumber_q_FSM_FFd2/CK
+  Location pin: SLICE_X10Y61.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.525ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.475ns (2105.263MHz) (Tcp)
+  Physical resource: M_nextnumber_q_FSM_FFd2_1/CLK
+  Logical resource: M_nextnumber_q_FSM_FFd2_1/CK
+  Location pin: SLICE_X10Y61.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+Slack: 19.525ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 0.475ns (2105.263MHz) (Tcp)
+  Physical resource: M_ctr_q_6/CLK
+  Logical resource: seg/ctr/M_ctr_q_3/CK
+  Location pin: SLICE_X14Y15.CLK
+  Clock network: clk_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   13.330|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 917 paths, 0 nets, and 337 connections
+
+Design statistics:
+   Minimum period:  13.330ns{1}   (Maximum frequency:  75.019MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Wed Oct 31 03:38:13 2018 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 225 MB
+
+
+
